@@ -46,19 +46,19 @@ body{
     <div id="club" class="row full">
       <div class="twelve columns">
         <h2>Club House Calendar</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+        <iframe id="club-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="pool" class="row full">
       <div class="twelve columns">
         <h2>Pool House Calendar</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+        <iframe id="pool-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="submit" class="row full">
       <div class="twelve columns">
         <h2>Submit An Event</h2>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
+        <iframe id="submit-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
       </div>
     </div>
   </div>
@@ -67,6 +67,9 @@ body{
 const club_btn = document.getElementById("club-btn");
 const pool_btn = document.getElementById("pool-btn");
 const submit_btn = document.getElementById("submit-btn");
+const club_frame = document.getElementById("club-frame");
+const pool_frame = document.getElementById("pool-frame");
+const submit_frame = document.getElementById("submit-frame");
 const club = document.getElementById("club");
 const pool = document.getElementById("pool");
 const submit = document.getElementById("submit");
@@ -76,7 +79,7 @@ club_btn.onclick = function(){
   club.style.display = "block";
   pool.style.display = "none";
   submit.style.display = "none";
-  club.contentWindow.location.reload();
+  club_frame.src += "";
 };
 
 pool_btn.onclick = function(){
@@ -84,7 +87,7 @@ pool_btn.onclick = function(){
   club.style.display = "none";
   pool.style.display = "block";
   submit.style.display = "none";
-  poolcontentWindow.location.reload();
+  pool_frame.src += "";
 };
 
 submit_btn.onclick = function(){
@@ -92,7 +95,7 @@ submit_btn.onclick = function(){
   club.style.display = "none";
   pool.style.display = "none";
   submit.style.display = "block";
-  submit.contentWindow.location.reload();
+  submit_frame.src += "";
 };
 
 </script>
