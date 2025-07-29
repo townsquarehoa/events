@@ -1,20 +1,99 @@
 <html>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-<body style="width: 100%">
-  <main class="container-fluid">
-  <h1>Town Square Event Calendar</h1>
-  <nav>
-    <ul>
-      <li><strong>Club House</strong></li>
-    </ul>
-    <ul>
-      <li><a href="#">Club House</a></li>
-      <li><a href="#">Pool House</a></li>
-      <li><button class="secondary">Schedule an Event</button></li>
-    </ul>
-  </nav>
-  <div style="text-align: center">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?usp=dialog" width="1000px" height="2400px" style="border-width:0" frameborder="0"  scrolling="no"></iframe></div>
-  </main>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="skeleton.css">
+<style>
+body{
+  overflow-x: hidden;
+}
+#main{
+  margin-top: 2em;
+  text-align: center;
+  width: 100vw;
+}
+#nav{
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+.full{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+#club{
+  display: block;
+}
+#pool{
+  display: none;
+}
+#submit{
+  display: none;
+}
+</style>
+<body>
+  <div id="main" class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h1>Town Square Event Calendar</h1>
+      </div>
+    </div>
+    <div id="nav" class="row">
+      <div class="twelve columns">
+        <button id="club-btn" class="four columns">Club House Calendar</button>
+        <button id="pool-btn" class="four columns">Pool House Calendar</button>
+        <button id="submit-btn" class="four columns">Submit An Event</button>
+      </div>
+    </div>
+    <div id="club" class="row full">
+      <div class="twelve columns">
+        <h2>Club House Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <div id="pool" class="row full">
+      <div class="twelve columns">
+        <h2>Pool House Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <div id="submit" class="row full">
+      <div class="twelve columns">
+        <h2>Submit An Event</h2>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
+      </div>
+    </div>
+  </div>
 </body>
+<script>
+const club_btn = document.getElementById("club-btn");
+const pool_btn = document.getElementById("pool-btn");
+const submit_btn = document.getElementById("submit-btn");
+const club = document.getElementById("club");
+const pool = document.getElementById("pool");
+const submit = document.getElementById("submit");
+
+club_btn.onclick = function(){
+  console.log("club");
+  club.style.display = "block";
+  pool.style.display = "none";
+  submit.style.display = "none";
+  club.contentWindow.location.reload();
+};
+
+pool_btn.onclick = function(){
+  console.log("club");
+  club.style.display = "none";
+  pool.style.display = "block";
+  submit.style.display = "none";
+  poolcontentWindow.location.reload();
+};
+
+submit_btn.onclick = function(){
+  console.log("submit");
+  club.style.display = "none";
+  pool.style.display = "none";
+  submit.style.display = "block";
+  submit.contentWindow.location.reload();
+};
+
+</script>
 </html>
