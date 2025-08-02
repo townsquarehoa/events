@@ -35,6 +35,15 @@ button{
 #submit{
   display: none;
 }
+#club-frame{
+  zoom: 1.5;
+}
+#pool-frame{
+  zoom: 1.5;
+}
+#submit-frame{
+  zoom: 1.5;
+}
 </style>
 <body>
   <div id="main" class="container">
@@ -53,19 +62,19 @@ button{
     <div id="club" class="row full">
       <div class="twelve columns">
         <h2>Clubhouse Calendar</h2>
-        <iframe id="club-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+        <iframe id="club-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="pool" class="row full">
       <div class="twelve columns">
         <h2>Rec Center/Pool Calendar</h2>
-        <iframe id="pool-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" width="1400" height="700" frameborder="0" scrolling="no"></iframe>
+        <iframe id="pool-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="submit" class="row full">
       <div class="twelve columns">
         <h2>Submit An Event</h2>
-        <iframe id="submit-frame" src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
+        <iframe id="submit-frame" class="twelve columns" src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
       </div>
     </div>
   </div>
@@ -104,6 +113,11 @@ submit_btn.onclick = function(){
   submit.style.display = "block";
   submit_frame.src += "";
 };
+
+
+club_frame.style.height = window.innerHeight / 1.5;
+pool_frame.style.height = window.innerHeight / 1.5;
+
 
 </script>
 </html>
