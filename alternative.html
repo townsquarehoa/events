@@ -1,0 +1,123 @@
+<html>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="skeleton.css">
+<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<style>
+body{
+  overflow-x: hidden;
+}
+#main{
+  margin-top: 2em;
+  text-align: center;
+  width: 100vw;
+}
+#nav{
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+button{
+  font-size: 13px;
+}
+.full{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+#club{
+  display: block;
+}
+#pool{
+  display: none;
+}
+#submit{
+  display: none;
+}
+#club-frame{
+  zoom: 1.5;
+}
+#pool-frame{
+  zoom: 1.5;
+}
+#submit-frame{
+  zoom: 1.5;
+}
+</style>
+<body>
+  <div id="main" class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h1>Town Square Event Calendar</h1>
+      </div>
+    </div>
+    <div id="nav" class="row">
+      <div class="twelve columns">
+        <button id="club-btn" class="four columns">Clubhouse Calendar</button>
+        <button id="pool-btn" class="four columns">Rec Center/Pool Calendar</button>
+        <button id="submit-btn" class="four columns">Submit An Event</button>
+      </div>
+    </div>
+    <div id="club" class="row full">
+      <div class="twelve columns">
+        <h2>Clubhouse Calendar</h2>
+        <iframe id="club-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <div id="pool" class="row full">
+      <div class="twelve columns">
+        <h2>Rec Center/Pool Calendar</h2>
+        <iframe id="pool-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <div id="submit" class="row full">
+      <div class="twelve columns">
+        <h2>Submit An Event</h2>
+        <iframe id="submit-frame" class="twelve columns" src="https://calendly.com/codyalantaylor/clubhouse" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+const club_btn = document.getElementById("club-btn");
+const pool_btn = document.getElementById("pool-btn");
+const submit_btn = document.getElementById("submit-btn");
+const club_frame = document.getElementById("club-frame");
+const pool_frame = document.getElementById("pool-frame");
+const submit_frame = document.getElementById("submit-frame");
+const club = document.getElementById("club");
+const pool = document.getElementById("pool");
+const submit = document.getElementById("submit");
+
+club_btn.onclick = function(){
+  console.log("club");
+  club.style.display = "block";
+  pool.style.display = "none";
+  submit.style.display = "none";
+  club_frame.src += "";
+};
+
+pool_btn.onclick = function(){
+  console.log("club");
+  club.style.display = "none";
+  pool.style.display = "block";
+  submit.style.display = "none";
+  pool_frame.src += "";
+};
+
+submit_btn.onclick = function(){
+  console.log("submit");
+  club.style.display = "none";
+  pool.style.display = "none";
+  submit.style.display = "block";
+  submit_frame.src += "";
+};
+
+
+club_frame.style.height = window.innerHeight / 1.5;
+pool_frame.style.height = window.innerHeight / 1.5;
+
+
+</script>
+</html>
