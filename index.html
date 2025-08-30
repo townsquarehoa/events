@@ -35,14 +35,21 @@ button{
 #submit{
   display: none;
 }
-#club-frame{
+#club_frame{
   zoom: 1.5;
 }
-#pool-frame{
+#pool_frame{
   zoom: 1.5;
 }
-#submit-frame{
+#club_submit_frame{
+  display: none;
   zoom: 1.5;
+  height: 800px;
+}
+#pool_submit_frame{
+  display: none;
+  zoom: 1.5;
+  height: 800px;
 }
 </style>
 <body>
@@ -54,27 +61,32 @@ button{
     </div>
     <div id="nav" class="row">
       <div class="twelve columns">
-        <button id="club-btn" class="four columns">Clubhouse Calendar</button>
-        <button id="pool-btn" class="four columns">Rec Center/Pool Calendar</button>
-        <button id="submit-btn" class="four columns">Submit An Event</button>
+        <button id="club-btn" class="six columns">Club House Calendar</button>
+        <button id="pool-btn" class="six columns">Rec Center/Pool Calendar</button>
       </div>
     </div>
     <div id="club" class="row full">
       <div class="twelve columns">
-        <h2>Clubhouse Calendar</h2>
-        <iframe id="club-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+        <h2>Club House Calendar</h2>
+        <div id="nav" class="row">
+          <div class="twelve columns">
+            <button id="club_submit_btn" class="four columns offset-by-four">Submit An Event</button>
+          </div>
+        </div>
+        <iframe id="club_frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=MDBkODVhMjk0NjMzMjJmOGRjMTlhMWZmZTA3ZWJlODM1MzYxYzU0MTRiMmI1ZjVkZmVhODQ4ZWUzZmExMGMzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23e67c73" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+        <iframe id="club_submit_frame" class="twelve columns" src="https://calendly.com/plaza-townsquarehoa/event" style="border-width:0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
     <div id="pool" class="row full">
       <div class="twelve columns">
         <h2>Rec Center/Pool Calendar</h2>
-        <iframe id="pool-frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YzI1YmMxOTQ5NDAyN2NkYWM4ZDUzMGNiNjdjYTU3MjBjN2E2NjNjYTRiOTE5OGRiMjQxZWM4OTFhMmJlNWNkN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" style="border-width:0" frameborder="0" scrolling="no"></iframe>
-      </div>
-    </div>
-    <div id="submit" class="row full">
-      <div class="twelve columns">
-        <h2>Submit An Event</h2>
-        <iframe id="submit-frame" class="twelve columns" src="https://docs.google.com/forms/d/e/1FAIpQLSeaM8O1r6Ft4b-Csnff-RZjBNWORtXcu6SY7cy7MfHsJW6YsQ/viewform?embedded=true" width="640" height="100%" frameborder="0" marginheight="0" marginwidth="0" scrolling="yes">Loading…</iframe>
+        <div id="nav" class="row">
+          <div class="twelve columns">
+            <button id="pool_submit_btn" class="four columns offset-by-four">Submit An Event</button>
+          </div>
+        </div>
+        <iframe id="pool_frame" class="twelve columns" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=cG9vbGhvdXNlLnRvd25zcXVhcmVob2FAZ21haWwuY29t&color=%23039be5" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+        <iframe id="pool_submit_frame" class="twelve columns" src="https://calendly.com/poolhouse-townsquarehoa/event" style="border-width:0" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
   </div>
@@ -82,42 +94,60 @@ button{
 <script>
 const club_btn = document.getElementById("club-btn");
 const pool_btn = document.getElementById("pool-btn");
-const submit_btn = document.getElementById("submit-btn");
-const club_frame = document.getElementById("club-frame");
-const pool_frame = document.getElementById("pool-frame");
-const submit_frame = document.getElementById("submit-frame");
+const club_submit_btn = document.getElementById("club_submit_btn");
+const pool_submit_btn = document.getElementById("pool_submit_btn");
+const club_frame = document.getElementById("club_frame");
+const pool_frame = document.getElementById("pool_frame");
+const club_submit_frame = document.getElementById("club_submit_frame");
+const pool_submit_frame = document.getElementById("pool_submit_frame");
 const club = document.getElementById("club");
 const pool = document.getElementById("pool");
-const submit = document.getElementById("submit");
+
 
 club_btn.onclick = function(){
   console.log("club");
   club.style.display = "block";
   pool.style.display = "none";
-  submit.style.display = "none";
+  club_frame.style.display = "block";
+  pool_frame.style.display = "none";
+  club_submit_frame.style.display = "none";
+  pool_submit_frame.style.display = "none";
   club_frame.src += "";
 };
 
 pool_btn.onclick = function(){
-  console.log("club");
+  console.log("pool");
   club.style.display = "none";
   pool.style.display = "block";
-  submit.style.display = "none";
+  club_frame.style.display = "none";
+  pool_frame.style.display = "block";
+  club_submit_frame.style.display = "none";
+  pool_submit_frame.style.display = "none";
   pool_frame.src += "";
 };
 
-submit_btn.onclick = function(){
-  console.log("submit");
-  club.style.display = "none";
+club_submit_btn.onclick = function(){
+  console.log("club submit");
+  club.style.display = "block";
   pool.style.display = "none";
-  submit.style.display = "block";
-  submit_frame.src += "";
-};
+  club_frame.style.display = "none";
+  pool_frame.style.display = "none";
+  club_submit_frame.style.display = "block";
+  pool_submit_frame.style.display = "none";
+}
 
+pool_submit_btn.onclick = function(){
+  console.log("pool submit");
+  club.style.display = "none";
+  pool.style.display = "block";
+  club_frame.style.display = "none";
+  pool_frame.style.display = "none";
+  club_submit_frame.style.display = "none";
+  pool_submit_frame.style.display = "block";
+}
 
 club_frame.style.height = window.innerHeight / 1.5;
 pool_frame.style.height = window.innerHeight / 1.5;
-
 
 </script>
 </html>
