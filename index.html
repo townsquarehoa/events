@@ -35,21 +35,21 @@ button{
 #submit{
   display: none;
 }
-#club_frame{
-  zoom: 1.5;
-}
+#club_frame,
 #pool_frame{
-  zoom: 1.5;
+  /* Avoid using nonstandard zoom on iframes (can distort embedded UI like
+     Calendly sliders). Use transform scale with adjusted iframe dimensions */
+  transform: scale(1.2);
+  transform-origin: 0 0;
+  width: calc(100% / 1.2);
 }
-#club_submit_frame{
-  display: none;
-  zoom: 1.5;
-  height: 800px;
-}
+#club_submit_frame,
 #pool_submit_frame{
   display: none;
-  zoom: 1.5;
-  height: 800px;
+  transform: scale(1.2);
+  transform-origin: 0 0;
+  width: calc(100% / 1.2);
+  height: calc(800px / 1.2);
 }
 /* New styles for the button layout */
 .button-row {
@@ -174,8 +174,20 @@ pool_refresh_btn.onclick = function(){
   pool_submit_frame.src = pool_submit_frame.src; // This refreshes the iframe
 }
 
-club_frame.style.height = window.innerHeight / 1.5;
-pool_frame.style.height = window.innerHeight / 1.5;
+// Adjust iframe heights to account for the CSS transform scale
+const IFRAME_SCALE = 1.2; // change this to 1.0-1.3 to tweak visual size
+function setIFrameHeights(){
+  const visualHeight = window.innerHeight / 1.5; // desired visual height in px
+  const layoutHeight = visualHeight / IFRAME_SCALE; // element height so scale produces visualHeight
+  club_frame.style.height = layoutHeight + 'px';
+  pool_frame.style.height = layoutHeight + 'px';
+  // For submit frames we used a fixed visual height of 800px in CSS; keep layout height matched
+  club_submit_frame.style.height = (800 / IFRAME_SCALE) + 'px';
+  pool_submit_frame.style.height = (800 / IFRAME_SCALE) + 'px';
+}
+
+setIFrameHeights();
+window.addEventListener('resize', setIFrameHeights);
 
 </script>
 </html>
